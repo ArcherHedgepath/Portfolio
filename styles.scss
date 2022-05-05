@@ -1,0 +1,229 @@
+
+
+// Colors: https://coolors.co/121619-2d4739-09814a-bcb382-e5c687
+$base-color: #ff4554;
+$icon-color: #00c3e3;
+$text-color: #dbdbdb;
+$secondary-color: #414548;
+$tretary-color: #e60012;
+$background-color: #232324;
+
+//animation
+$nav-transition-speed: 700ms;
+
+body::-webkit-scrollbar-track
+{
+    background: $tretary-color;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: $background-color;
+}
+
+.navbar{
+    position: fixed;
+    background-color: $secondary-color;
+    transition: width 200ms ease-in;
+    margin: 0;
+    z-index: 10;
+}
+
+.navbar-nav{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;  
+}
+
+.nav-item{
+    width: 100%;
+
+    &:last-child{
+        margin-top: auto;
+    }
+}
+
+.nav-link{
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: $text-color;
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.7);
+    transition: $nav-transition-speed;
+
+    i{
+        min-width: 2rem;
+        margin: 0 01.5rem;
+
+        
+    }
+    &:hover{
+        .fa-solid{
+            transition: $nav-transition-speed ease-in;
+        }
+    }
+
+    
+}
+
+.link-text{
+    display: none;
+    margin-left: 1rem;
+}
+
+.fa-solid{
+    //text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 42px #0fa, 0 0 82px #0fa,0 0 92px #0fa;
+    color: $icon-color;
+}
+
+.logo{
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: $text-color;
+    background-color: $secondary-color;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3ch;
+    width: 100%;
+
+    i{
+        transform: rotate(0deg);
+        transition: 200ms;
+    }
+}
+
+.logo-text{
+    left: -999px;
+}
+
+.logo-title, .logo-subtitle{
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: .1rem;
+    text-align: center;
+}
+
+.logo-title{
+    color: $base-color;
+    font-family: 'Abril Fatface', serif;
+    font-size: 4rem;
+}
+.logo-subtitle{
+    color: $text-color;
+    font-family: serif;
+    &:hover{
+        transition: $nav-transition-speed ease-in-out;
+        border-bottom: 2px solid $base-color;
+    }
+}
+
+.port-img{
+    box-shadow: 3px 3px 2px $icon-color;
+}
+
+.header-text{
+    color: $icon-color;
+    font-family: serif;
+    font-weight: bold;
+    text-decoration: underline;
+    
+}
+
+.text{
+    color: $text-color;
+    font-size: 1.3em;
+}
+
+.body-img{
+    height: 250px;
+}
+
+.divider{
+    border-bottom: 2px solid $base-color;
+}
+
+
+@media only screen and (max-width: 600px)
+{
+    .navbar{
+        bottom: 0;
+        width: 100vw;
+        height: 6rem;
+    }
+
+    .logo{
+        display: none;
+    }
+
+    .navbar-nav{
+        flex-direction: row;
+    }
+
+    .nav-link{
+        justify-content: center;
+    }
+
+    main{
+        margin: 0;
+    }
+}
+
+
+@media only screen and (min-width: 600px)
+{
+    .navbar{
+        top: 0;
+        width: 6rem;
+        height: 100vh;
+        
+        &:hover{
+            width: 18rem;
+            
+            .link-text{
+                display: inline;
+            }
+    
+            .logo{
+                i{
+                    
+                    margin-left: 0rem;
+                    transform: rotate(-180deg);
+                    transition: 1000ms;
+                }
+            }
+
+            .logo-text{
+                
+                left: 0px;
+            }
+        }
+    
+
+    }
+    
+
+    .fa-solid{
+        &:hover{
+            text-shadow: 0 0 4px $text-color, 0 0 10px $text-color, 0 0 20px  $text-color;
+        
+        }
+
+    
+    }
+    .nav-link{
+        &:hover{
+        filter: grayscale(0%) opacity(1);
+        background-color: $secondary-color;
+        color: $text-color;
+        }
+    }
+}
+
